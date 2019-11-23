@@ -81,7 +81,7 @@ object Sonntagsfrage {
   }
 
 
-  // Extractor for Länder
+  // Extractor for States
   def states() = {
 
     // Get Raw Content
@@ -111,7 +111,7 @@ object Sonntagsfrage {
           val replace_pattern = "[^\\d ]".r
           val replace_decimals = ",\\d+".r
           val percent_int = replace_decimals.replaceAllIn(percent, "")
-          val percent_split = replace_pattern.replaceAllIn(percent_int, "").strip.split("\\s+")
+          val percent_split = replace_pattern.replaceAllIn(percent_int, "").trim().split("\\s+")
           val other_sum = percent_split.map(x => x.toInt).sum
           other_sum
         }
